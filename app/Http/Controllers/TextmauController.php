@@ -16,11 +16,23 @@ class TextmauController extends Controller
     	$textmau->intext = $request->intext;
     	$textmau->outtext = $request->outtext;
     	$textmau->save();
-    	return 'thanhcong';
+    	return back()->with('Thanhcong','ThemThanhCong');
     }
     public function GetDanhsach(){
     	
     	$data['textmau'] = Textmau::all();
     	return view('danhsachtextmau',$data);
+    }
+    public function Delete($id){
+        $Text=Textmau::find($id);
+        $Text->delete();
+        return back();
+    }
+    public function Edit(Request $request) {
+        $textmau = new Textmau ;
+        $textmau->intext = $request->intext;
+        $textmau->outtext = $request->outtext;
+        $textmau->save();
+        return back();
     }
 }

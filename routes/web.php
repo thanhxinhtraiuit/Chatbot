@@ -18,5 +18,7 @@ Route::get('/', function () {
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
 Route::get('them-text-mau','TextmauController@GetThem');
-Route::post('them-text-mau','TextmauController@PostThem');
+Route::post('them-text-mau','TextmauController@PostThem')->name('themtext');
 Route::get('danh-sach-text-mau','TextmauController@GetDanhsach');
+Route::get('xoa-text-mau/{id}','TextmauController@Delete');
+Route::post('sua-text-mau/{id}','TextmauController@Edit');
